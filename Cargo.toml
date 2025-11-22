@@ -1,0 +1,50 @@
+[package]
+name = "pipeguard"
+version = "0.1.0"
+edition = "2021"
+description = "A Rust library for inter-process communication using Windows Named Pipes with Tokio async runtime and optional ChaCha20Poly1305 encryption"
+license = "MIT"
+repository = "https://github.com/moooozi/pipeguard"
+homepage = "https://github.com/moooozi/pipeguard"
+readme = "README.md"
+keywords = ["ipc", "named-pipes", "windows"]
+categories = ["asynchronous", "network-programming", "os::windows-apis"]
+rust-version = "1.88"
+authors = ["M Zidane"]
+build = "build.rs"
+
+[build-dependencies]
+rand = "0.8"
+
+[dependencies]
+tokio = { version = "^1.0", features = ["macros", "time", "net", "sync", "io-util", "rt", "rt-multi-thread", "signal"] }
+thiserror = "^1.0"
+chacha20poly1305 = "^0.10"
+serde = { version = "^1.0", features = ["derive"] }
+serde_json = "^1.0"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "^0.61", features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Authorization", "Win32_System", "Win32_System_Pipes", "Win32_System_Threading"] }
+
+[dev-dependencies]
+tokio-test = "^0.4"
+
+[[example]]
+name = "basic_communication"
+path = "examples/basic_communication.rs"
+
+[[example]]
+name = "encryption_options"
+path = "examples/encryption_options.rs"
+
+[[example]]
+name = "path_enforcement"
+path = "examples/path_enforcement.rs"
+
+[[example]]
+name = "multi_client_server"
+path = "examples/multi_client_server.rs"
+
+[[example]]
+name = "event_driven_server"
+path = "examples/event_driven_server.rs"
