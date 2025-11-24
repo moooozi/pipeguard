@@ -1,6 +1,6 @@
 [package]
 name = "pipeguard"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A Rust library for inter-process communication using Windows Named Pipes with Tokio async runtime and optional ChaCha20Poly1305 encryption"
 license = "MIT"
