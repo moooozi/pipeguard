@@ -1,23 +1,23 @@
 //! Named Pipe IPC Library
-//! 
+//!
 //! This library provides a simple and efficient way to implement inter-process communication
 //! using Windows Named Pipes with Tokio async runtime.
-//! 
+//!
 //! # Features
-//! 
+//!
 //! - Async/await support using Tokio
 //! - JSON serialization support
 //! - Connection management
 //! - Error handling
 //! - Multiple connection support for servers
-//! 
+//!
 //! # Examples
-//! 
+//!
 //! ## Basic Server
-//! 
+//!
 //! ```rust,no_run
-//! use named_pipe_ipc::NamedPipeServerStruct;
-//! 
+//! use pipeguard::NamedPipeServerStruct;
+//!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
 //!     let mut server = NamedPipeServerStruct::new("my_pipe");
@@ -33,12 +33,12 @@
 //!     Ok(())
 //! }
 //! ```
-//! 
+//!
 //! ## Basic Client
-//! 
+//!
 //! ```rust,no_run
-//! use named_pipe_ipc::NamedPipeClientStruct;
-//! 
+//! use pipeguard::NamedPipeClientStruct;
+//!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
 //!     let mut client = NamedPipeClientStruct::new("my_pipe");
